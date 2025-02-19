@@ -1,5 +1,5 @@
 Términos de Servicio
-Última actualización: 19 de febrero de 2025
+Última actualización: [Fecha]
 
 1. Aceptación de los Términos
 Al utilizar el Bot Rocolaser Bot, aceptas cumplir con estos Términos de Servicio. Si no estás de acuerdo con estos términos, no debes utilizar el Bot.
@@ -38,4 +38,4 @@ Uso indebido del Bot por parte de terceros.
 El desarrollador se reserva el derecho de modificar estos términos en cualquier momento. Los cambios serán comunicados a través del servidor de Discord donde esté presente el Bot.
 
 7. Contacto
-Si tienes preguntas o inquietudes sobre estos Términos de Servicio, puedes contactar al desarrollador a través de Discord: perulainen.
+Si tienes preguntas o inquietudes sobre estos Términos de Servicio, puedes contactar al desarrollador a través de Discord: [username].

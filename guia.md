@@ -1,0 +1,143 @@
+## Windows
+
+Guía de instalación en Windows
+1. Instalar Python y Git (si aún no lo tienes)
+Python: Descarga la última versión de Python 3 desde python.org e instálalo. Asegúrate de marcar la opción para agregar Python al PATH durante la instalación.
+Git: (Opcional) Descarga e instala Git desde git-scm.com si planeas clonar el repositorio.
+2. Descargar FFmpeg
+Descargar FFmpeg:
+Visita https://www.gyan.dev/ffmpeg/builds/#git-master-builds y descarga la build completa (por ejemplo, la versión "git master build").
+Instalación de FFmpeg:
+Extrae el contenido del archivo descargado y copia la carpeta extraída (o al menos la carpeta bin) a C:/ffmpeg/. Asegúrate de que el ejecutable ffmpeg.exe esté en C:/ffmpeg/bin.
+Agregar FFmpeg al PATH:
+Abre el Panel de Control > Sistema y Seguridad > Sistema > Configuración avanzada del sistema > Variables de entorno.
+En "Variables del sistema", busca la variable Path y edítala.
+Agrega una nueva entrada con C:\ffmpeg\bin.
+Guarda y cierra las ventanas.
+Puedes verificar la instalación abriendo una terminal (CMD o PowerShell) y ejecutando:
+
+bash
+Copy
+ffmpeg -version
+Deberías ver información de FFmpeg.
+
+3. Preparar el proyecto del bot
+Clona o copia el código fuente:
+Coloca el archivo rocolaser_bot.py (junto con otros archivos, si los hay) en un directorio de tu elección, por ejemplo:
+
+makefile
+Copy
+C:\Users\tu_usuario\Documents\rocolaser_bot\
+Asegúrate de que la estructura sea similar a:
+
+bash
+Copy
+root/
+  ├── src/rocolaser_bot.py
+  └── music/    <-- Aquí deben ir tus archivos MP3
+Crear un entorno virtual (opcional pero recomendado): Abre CMD o PowerShell en la carpeta del proyecto y ejecuta:
+
+bash
+Copy
+python -m venv venv
+venv\Scripts\activate
+Ahora, verás que tu prompt indica que el entorno virtual está activado.
+
+Instalar los paquetes necesarios: Ejecuta:
+
+bash
+Copy
+pip install discord.py python-dotenv eyed3 PyNaCl
+Estos paquetes son:
+
+discord.py: Para interactuar con la API de Discord.
+python-dotenv: Para cargar variables de entorno desde un archivo .env.
+eyed3: Para leer y editar etiquetas ID3 de archivos MP3.
+PyNaCl: Requerido para la funcionalidad de voz en Discord.
+Configurar el archivo .env: En el directorio del proyecto, crea un archivo llamado .env con el siguiente contenido:
+
+ini
+Copy
+DISCORD_TOKEN=tu_token_del_bot_aquí
+Reemplaza tu_token_del_bot_aquí con el token de tu bot obtenido en el Discord Developer Portal.
+
+4. Ejecutar el bot
+Con el entorno virtual activado y estando en el directorio del proyecto, ejecuta:
+
+bash
+Copy
+python src/rocolaser_bot.py
+Si todo está configurado correctamente, verás mensajes en la consola indicando que el bot se ha iniciado y se han cargado las canciones.
+
+## Ubuntu
+
+Guía de instalación en Ubuntu
+1. Instalar Python y dependencias básicas
+Abre una terminal y ejecuta:
+
+bash
+Copy
+sudo apt update
+sudo apt install python3 python3-pip python3-venv git
+2. Instalar FFmpeg
+FFmpeg está disponible en los repositorios de Ubuntu:
+
+bash
+Copy
+sudo apt install ffmpeg
+Verifica la instalación con:
+
+bash
+Copy
+ffmpeg -version
+3. Preparar el proyecto del bot
+Clonar o copiar el código fuente:
+Coloca el archivo rocolaser_bot.py (y otros archivos necesarios) en un directorio, por ejemplo:
+
+bash
+Copy
+~/rocolaser_bot/
+Asegúrate de tener la siguiente estructura:
+
+lua
+Copy
+root/
+  ├── src/rocolaser_bot.py
+  └── music/    <-- Aquí van tus archivos MP3
+Crear un entorno virtual: Navega al directorio del proyecto y ejecuta:
+
+bash
+Copy
+python3 -m venv venv
+source venv/bin/activate
+Instalar los paquetes necesarios: Ejecuta:
+
+bash
+Copy
+pip install discord.py python-dotenv eyed3 PyNaCl
+Esto instalará los mismos paquetes mencionados en la guía de Windows.
+
+Configurar el archivo .env: En el directorio del proyecto, crea un archivo llamado .env y coloca:
+
+ini
+Copy
+DISCORD_TOKEN=tu_token_del_bot_aquí
+Reemplaza tu_token_del_bot_aquí con el token de tu bot.
+
+4. Ejecutar el bot
+Con el entorno virtual activado y en el directorio del proyecto, ejecuta:
+
+bash
+Copy
+python3 src/rocolaser_bot.py
+Deberías ver en la terminal que el bot se inicia y que se han cargado las canciones.
+
+Resumen de los pasos comunes:
+Instala Python 3 y configura un entorno virtual.
+Descarga e instala FFmpeg:
+En Windows: Descarga desde Gyan.dev y extrae en C:/ffmpeg/bin, luego agrega esta ruta al PATH.
+En Ubuntu: Usa sudo apt install ffmpeg.
+Instala los paquetes necesarios: discord.py, python-dotenv, eyed3 y PyNaCl.
+Configura el archivo .env con el token de tu bot.
+Ejecuta el bot.
+Con estas guías podrás instalar y ejecutar el bot en ambos sistemas operativos. ¡Suerte y que disfrutes de la música en Discord!
