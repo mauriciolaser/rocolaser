@@ -69,6 +69,20 @@ def load_all_songs():
                 })
     return songs
 
+# Comando prefijo /refresh: actualiza la lista de canciones
+@bot.command(name='refresh')
+async def refresh(ctx):
+    global all_songs
+    all_songs = load_all_songs()
+    await ctx.send(f"✅ Lista de canciones actualizada. {len(all_songs)} canciones cargadas.")
+
+# Comando slash /refresh: actualiza la lista de canciones
+@bot.tree.command(name="refresh", description="Actualiza la lista de canciones desde el directorio /music")
+async def slash_refresh(interaction: discord.Interaction):
+    global all_songs
+    all_songs = load_all_songs()
+    await interaction.response.send_message(f"✅ Lista de canciones actualizada. {len(all_songs)} canciones cargadas.")
+
 @bot.event
 async def on_ready():
     global all_songs

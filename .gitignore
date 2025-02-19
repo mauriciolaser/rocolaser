@@ -1,2 +1,3 @@
 .env
 music/*.mp3
+venv/
