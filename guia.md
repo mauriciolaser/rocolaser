@@ -72,72 +72,44 @@ Si todo está configurado correctamente, verás mensajes en la consola indicando
 ## Ubuntu
 
 Guía de instalación en Ubuntu
-1. Instalar Python y dependencias básicas
+
+### 1. Instalar Python y dependencias básicas
 Abre una terminal y ejecuta:
 
-bash
-Copy
 sudo apt update
 sudo apt install python3 python3-pip python3-venv git
-2. Instalar FFmpeg
-FFmpeg está disponible en los repositorios de Ubuntu:
-
-bash
-Copy
+### 2. Instalar FFmpeg
 sudo apt install ffmpeg
-Verifica la instalación con:
-
-bash
-Copy
 ffmpeg -version
-3. Preparar el proyecto del bot
-Clonar o copiar el código fuente:
-Coloca el archivo rocolaser_bot.py (y otros archivos necesarios) en un directorio, por ejemplo:
 
-bash
-Copy
-~/rocolaser_bot/
+### 3. Preparar el proyecto del bot
+Clonar o copiar el código fuente
 Asegúrate de tener la siguiente estructura:
 
-lua
-Copy
 root/
   ├── src/rocolaser_bot.py
   └── music/    <-- Aquí van tus archivos MP3
+
 Crear un entorno virtual: Navega al directorio del proyecto y ejecuta:
 
-bash
-Copy
 python3 -m venv venv
 source venv/bin/activate
-Instalar los paquetes necesarios: Ejecuta:
+Instalar los paquetes necesarios: 
 
-bash
-Copy
+Ejecuta:
+
 pip install discord.py python-dotenv eyed3 PyNaCl
+
 Esto instalará los mismos paquetes mencionados en la guía de Windows.
 
 Configurar el archivo .env: En el directorio del proyecto, crea un archivo llamado .env y coloca:
 
-ini
-Copy
 DISCORD_TOKEN=tu_token_del_bot_aquí
+
 Reemplaza tu_token_del_bot_aquí con el token de tu bot.
 
-4. Ejecutar el bot
+### 4. Ejecutar el bot
 Con el entorno virtual activado y en el directorio del proyecto, ejecuta:
 
-bash
-Copy
 python3 src/rocolaser_bot.py
 Deberías ver en la terminal que el bot se inicia y que se han cargado las canciones.
-
-Resumen de los pasos comunes:
-Instala Python 3 y configura un entorno virtual.
-Descarga e instala FFmpeg:
-En Windows: Descarga desde Gyan.dev y extrae en C:/ffmpeg/bin, luego agrega esta ruta al PATH.
-En Ubuntu: Usa sudo apt install ffmpeg.
-Instala los paquetes necesarios: discord.py, python-dotenv, eyed3 y PyNaCl.
-Configura el archivo .env con el token de tu bot.
-Ejecuta el bot.
-Con estas guías podrás instalar y ejecutar el bot en ambos sistemas operativos. ¡Suerte y que disfrutes de la música en Discord!
