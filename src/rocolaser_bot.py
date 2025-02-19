@@ -87,7 +87,7 @@ async def refresh(ctx):
     await ctx.send(f"✅ Lista de canciones actualizada. {len(all_songs)} canciones cargadas.")
 
 # Comando slash /refresh: actualiza la lista de canciones
-@bot.tree.command(name="refresh", description="Actualiza la lista de canciones desde el directorio /music")
+@bot.tree.command(name="refresh", description="Actualiza la lista de canciones desde el directorio /music")  # <- Corrección aquí
 async def slash_refresh(interaction: discord.Interaction):
     global all_songs
     all_songs = load_all_songs()
