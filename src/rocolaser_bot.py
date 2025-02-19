@@ -1,3 +1,4 @@
+import sys
 import os
 import eyed3
 from eyed3.id3 import Tag
@@ -13,8 +14,17 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 music_dir = os.path.join(os.path.dirname(current_dir), 'music')
 
 # Especifica la ruta completa a ffmpeg
-FFMPEG_PATH = "C:/ffmpeg/bin/ffmpeg.exe"  # Ajusta esta ruta según tu instalación
-
+# Configuración automática de FFMPEG según el SO
+if sys.platform.startswith("win"):
+    # Ruta para Windows
+    FFMPEG_PATH = "C:/ffmpeg/bin/ffmpeg.exe"
+elif sys.platform.startswith("linux"):
+    # Ruta estándar para Ubuntu/Linux
+    FFMPEG_PATH = "/usr/bin/ffmpeg"
+else:
+    # Fallback para otros sistemas (MacOS, etc)
+    FFMPEG_PATH = "ffmpeg"  # Asume que está en el PATH
+    
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('@rocolaser '), intents=intents)
