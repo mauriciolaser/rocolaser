@@ -1,3 +1,4 @@
 .env
 music/*.mp3
 venv/
+/src/__pycache__

@@ -5,6 +5,7 @@ from eyed3.id3 import Tag
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
+from file_update import update
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -92,6 +93,7 @@ async def slash_refresh(interaction: discord.Interaction):
     global all_songs
     all_songs = load_all_songs()
     await interaction.response.send_message(f"✅ Lista de canciones actualizada. {len(all_songs)} canciones cargadas.")
+
 
 @bot.event
 async def on_ready():
@@ -266,8 +268,6 @@ async def on_message(message):
 
     except Exception as e:
         await message.channel.send(f"❌ Error: {str(e)}")
-
-# --- Comandos nuevos para reproducir por número usando la lista global ---
 
 # Comando prefijo /code: reproduce la canción por su número (según all_songs)
 @bot.command(name='code')
