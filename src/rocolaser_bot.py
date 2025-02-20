@@ -88,12 +88,20 @@ async def refresh(ctx):
     await ctx.send(f"✅ Lista de canciones actualizada. {len(all_songs)} canciones cargadas.")
 
 # Comando slash /refresh: actualiza la lista de canciones
-@bot.tree.command(name="refresh", description="Actualiza la lista de canciones desde el directorio /music")  # <- Corrección aquí
+@bot.tree.command(name="refresh", description="Actualiza la lista de canciones desde el directorio /music")
 async def slash_refresh(interaction: discord.Interaction):
     global all_songs
     all_songs = load_all_songs()
     await interaction.response.send_message(f"✅ Lista de canciones actualizada. {len(all_songs)} canciones cargadas.")
 
+# Nuevo comando slash /update: sincroniza archivos MP3 desde SFTP a la carpeta local
+@bot.tree.command(name="update", description="Sincroniza archivos MP3 desde SFTP a la carpeta local")
+async def slash_update(interaction: discord.Interaction):
+    result = update()
+    if result.get('success'):
+        await interaction.response.send_message(f"✅ {result.get('message')}")
+    else:
+        await interaction.response.send_message(f"❌ Error: {result.get('error')}", ephemeral=True)
 
 @bot.event
 async def on_ready():
